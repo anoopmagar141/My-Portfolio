@@ -1,0 +1,60 @@
+body{
+    text-align: center;
+    background-color: #283149;
+    margin: 10rem auto;
+}
+
+h1{
+    font-size: 6rem;
+    color: #DBEDF3;
+    text-shadow: 3px 0 red;
+
+}
+
+
+.drum{
+    outline: none;
+    border: 10px solid #404b69;
+    font-size: 5rem;
+    line-height: 2;
+    font-weight: 900;
+    color: red;
+    text-shadow: 3px 0 white;
+    border-radius: 15px;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    margin: 10px;
+    background-color: white;
+
+}
+
+.down{
+    color: white;
+    font-family: sans-serif;
+    margin-top: 50px;
+
+}
+
+
+.set{
+    margin: 10% auto;
+}
+
+.pressed{
+    box-shadow: 0 3px 4px 0 #DBEDF3;
+   opacity:0.6;
+}
+
+
+
+.power-btn {
+    /* Your existing button styles */
+    transition: background-color 0.3s;
+}
+
+.power-btn.power-active {
+    background-color: #4CAF50; /* Green when ON */
+    color: white;
+}

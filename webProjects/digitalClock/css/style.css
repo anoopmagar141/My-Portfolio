@@ -1,0 +1,223 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #121212;
+    color: #fff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Clock Container */
+#clock-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/* Digital Clock Section */
+#digital-clock-section {
+    flex: 1;
+}
+
+#digital-clock-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+#time {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+#date {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+#quote {
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+/* Classic Clock Section */
+#classic-clock-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+canvas {
+    border: 5px solid #fff;
+    border-radius: 50%;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#time-zone-select {
+    padding: 10px;
+    font-size: 1rem;
+}
+
+#toggle-theme {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#toggle-theme:hover {
+    background-color: #555;
+}
+
+/* Additional Features Section */
+#additional-features {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#features-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+}
+
+/* Individual Feature Sections */
+#alarm-section,
+#stopwatch-section,
+#timer-section {
+    flex: 1;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+input[type="time"],
+input[type="number"] {
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    margin: 5px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Stopwatch and Timer Display */
+#stopwatch, #countdown-timer {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* Text Colors for Light Mode */
+body.light-mode h1,
+body.light-mode p,
+body.light-mode #time,
+body.light-mode #date,
+body.light-mode #quote {
+    color: #121212; /* Dark text for light mode */
+}
+
+body.light-mode #alarm-section,
+body.light-mode #stopwatch-section,
+body.light-mode #timer-section {
+    background-color: #fff;
+    color: #121212; /* Dark text for feature sections */
+}
+
+/* Light Mode Button */
+body.light-mode #toggle-theme {
+    background-color: #f4f4f4;
+    color: #121212;
+}
+
+body.light-mode #toggle-theme:hover {
+    background-color: #ddd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #clock-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    canvas {
+        width: 150px;
+        height: 150px;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #features-row {
+        flex-direction: column;
+    }
+
+    #alarm-section,
+    #stopwatch-section,
+    #timer-section {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

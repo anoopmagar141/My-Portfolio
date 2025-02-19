@@ -1,0 +1,771 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Navbar */
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  background: linear-gradient(135deg, #333, #222);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+/* Navbar in Dark Mode */
+body.dark-mode #navbar {
+  background: linear-gradient(135deg, #222, #111); /* Darker gradient for navbar */
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Nav Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #ff6347;
+  bottom: -5px;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ff6347;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Highlight the active section's nav link */
+.nav-links a.active-section {
+  color: #ff6347; /* Same as hover color */
+}
+
+.nav-links a.active-section::after {
+  width: 100%; /* Keep the underline visible */
+}
+
+/* Mode Toggle and Social Toggle Buttons */
+#mode-toggle, .social-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin-top: 0rem;
+}
+
+#mode-toggle:hover, .social-toggle:hover {
+  color: #ff6347;
+}
+
+/* Mode Toggle Button in Dark Mode */
+body.dark-mode #mode-toggle {
+  color: #fff; /* Ensure visibility in dark mode */
+}
+
+body.dark-mode #mode-toggle:hover {
+  color: #ff6347;
+}
+
+
+/* Social Links */
+.social-links {
+  display: none;
+  gap: 1rem;
+  position: absolute;
+  right: 2rem;
+  top: 6rem;
+  background-color: #444;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.social-links.active {
+  display: flex;
+}
+
+.social-links a {
+  color: #fff;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #ff6347;
+}
+
+/* Social Links in Dark Mode */
+body.dark-mode .social-links {
+  background-color: #333;
+}
+
+body.dark-mode .social-links a {
+  color: #fff;
+}
+
+/* Video Section */
+.video-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#my-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#greeting {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -14%);
+  
+  color: white;
+}
+
+
+
+
+/* Video Overlay - Centered and Fade-in */
+.video-overlay {
+  position: absolute;
+  top: 33%;
+  left: 78%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.6); /* Dark semi-transparent */
+  padding: 20px;
+  border-radius: 8px;
+  opacity: 0; /* Start invisible */
+  animation: fadeIn 1s ease-out forwards; /* Fade-in animation */
+  transition: transform 0.3s ease; /* Smooth scale effect on hover */
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8); /* Slightly scaled down */
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1); /* Full size */
+  }
+}
+
+/* Hover Effect: Scale the overlay */
+.video-overlay:hover {
+  transform: translate(-50%, -50%) scale(1.1); /* Slight zoom on hover */
+}
+
+/* Hover Effect for text */
+.video-overlay h1:hover, .video-overlay p:hover {
+  color: #ffcc00; /* Change text color on hover */
+  cursor: pointer;
+}
+
+
+
+/* About Section */
+#about {
+  padding: 8rem;
+  text-align: center;
+  margin: 2rem;
+}
+
+#about h2 {
+  font-size: 2.5rem;
+  margin-bottom: 5rem;
+}
+
+#about p {
+  font-size: 1.5rem;
+  max-width: 10000px;
+  margin: 0 auto;
+}
+
+/* Skills Section */
+#skills {
+  padding: 0.3rem;
+  text-align: center;
+}
+
+.skills-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 1rem 0;
+}
+
+.skills-loop {
+  display: inline-flex;
+  gap: 1rem;
+}
+
+.skill-card {
+  display: inline-block;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.skill-card i {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.skill-card h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+
+
+/* General Chart Container Styling */
+.chart-container {
+  width: 100%;
+  max-width: 460px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: var(--background-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Make the canvas responsive and ensure good scaling */
+canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* Dark Mode Styling for the Chart */
+body.dark-mode .chart-container {
+  background-color: #333; /* Darker background for chart container */
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+/* Chart lines and grid styling for dark mode */
+body.dark-mode canvas {
+  border: 2px solid #444; /* Make sure the chart border is visible */
+}
+
+/* Customize radar chart in light mode */
+body:not(.dark-mode) canvas {
+  border: 2px solid #eee; /* Light mode border for chart */
+}
+
+body:not(.dark-mode) .chart-container {
+  background-color: #fff; /* Light background for chart container */
+}
+
+/* Font styles */
+h3 {
+  color: var(--text-color);
+}
+
+/* Set a default light mode theme */
+:root {
+  --background-color: #fff; /* Light background for the page */
+  --text-color: #333; /* Dark text for the light theme */
+  --chart-line-color: rgba(54, 162, 235, 1); /* Blue for chart line in light mode */
+  --chart-grid-color: rgba(0, 0, 0, 0.1); /* Light grid for chart */
+}
+
+body.dark-mode {
+  --background-color: #121212; /* Dark background for the page */
+  --text-color: #fff; /* White text for dark mode */
+  --chart-line-color: rgba(54, 162, 235, 0.8); /* Lighter blue for chart line in dark mode */
+  --chart-grid-color: rgba(255, 255, 255, 0.2); /* Light grid for dark mode */
+}
+
+/* Fix chart line visibility issue in dark mode */
+body.dark-mode .chart-container canvas {
+  border-color: var(--chart-line-color);
+}
+
+/* Change the chart's line color in dark mode */
+body.dark-mode .chartjs-render-monitor {
+  border-color: var(--chart-line-color);
+}
+
+/* Circular Ring Styling */
+.circular-ring .progress-ring {
+  position: relative;
+  display: inline-block;
+  margin: 20px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.circular-ring .progress-ring:hover {
+  transform: scale(1.1);  /* Slight zoom effect on hover */
+  opacity: 0.9;
+}
+
+.circular-ring .progress-ring__svg {
+  transition: stroke-dashoffset 0.3s ease; /* Smooth animation */
+}
+
+.circular-ring .progress-ring__circle {
+  transition: stroke 0.3s ease;
+}
+
+.circular-ring .progress-ring:hover .progress-ring__circle {
+  stroke: #ff6347;  /* Change color when hovered */
+}
+
+.circular-ring h3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  color: #4db8ff;
+  font-weight: bold;
+  pointer-events: none; /* Prevents hover effect interference */
+}
+
+.circular-ring .progress-ring:hover h3 {
+  display: block;
+  color: #ff6347;  /* Change color on hover */
+}
+
+/* Tooltip Effect (shows skill name and proficiency) */
+.circular-ring .tooltip {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  display: none;
+}
+
+.circular-ring .progress-ring:hover .tooltip {
+  display: block;
+}
+
+#circular-ring{
+  border: solid 1px #141414;
+}
+
+/* Projects Section */
+.projects {
+  margin: 1px;
+  padding: 10px 22%;
+  text-align: center;
+  background: linear-gradient(135deg, #eceff1, #f5f5f5);
+  transition: background-color 0.3s ease;
+  
+}
+
+body.dark-mode .projects {
+  background: linear-gradient(135deg, #121212, #121111);
+  color: #fff;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+body.dark-mode .section-title {
+  color: #fff;
+}
+
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.project-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  width: 320px;
+  cursor: pointer;
+}
+
+body.dark-mode .project-card {
+  background-color: #2e2e2e;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.project-media {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-bottom: 4px solid #ff7b54;
+}
+
+.project-media img, .project-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+
+h3 {
+  font-size: 1.6rem;
+  margin: 15px 0;
+  color: #d2cbcb;
+}
+
+body.dark-mode h3, body.dark-mode p {
+  color: #d2cbcb;
+}
+
+p {
+  font-size: 1rem;
+  color: #555;
+  padding: 0 15px 15px;
+}
+
+.project-details {
+  display: none;
+  padding: 15px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+body.dark-mode .project-card.active {
+  background-color: #444;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #333;
+  color: #fff;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.dark-mode .social-links {
+  background-color: #333;
+}
+
+.dark-mode .project-card {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.dark-mode .project-card.active {
+  background-color: #2e2e2e;
+}
+
+.dark-mode .skill-card {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.dark-mode .skill-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .section-title {
+  color: #fff;
+}
+
+.dark-mode h3, .dark-mode p {
+  color: #d2cbcb;
+}
+
+body.dark-mode .projects {
+  background: linear-gradient(135deg, #121212, #121111);
+  color: #fff;
+}
+
+body.dark-mode .project-card {
+  background-color: #2e2e2e;
+}
+
+body.dark-mode .project-card.active {
+  background-color: #444;
+}
+
+
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger div {
+  width: 30px;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+/* Hamburger Menu in Mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #333;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 1rem 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger.active div:nth-child(1) {
+    transform: rotate(45deg);
+    position: relative;
+    top: 5px;
+  }
+
+  .hamburger.active div:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active div:nth-child(3) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: -5px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+/*  Contact Section - Light Mode (Default) */
+.contact {
+  background: #fff; /* Ensures white background in light mode */
+  color: #333;
+  padding: 155px 20px;
+  text-align: center;
+  transition: background 0.4s ease-in-out, color 0.4s ease-in-out;
+}
+
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: background 0.4s ease-in-out;
+}
+
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.contact p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+
+
+/*  Contact Info */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.1rem;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.05);
+  transition: 0.3s ease-in-out;
+}
+
+.contact-item i {
+  font-size: 1.4rem;
+  color: #ff8800;
+}
+
+.contact-item a {
+  text-decoration: none;
+  color: #ff8800;
+  font-weight: 600;
+  transition: 0.3s ease-in-out;
+}
+
+.contact-item:hover {
+  transform: scale(1.05);
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/*  Chat Box */
+#chat {
+  margin-top: 30px;
+}
+
+#chat-box {
+  width: 100%;
+  height: 100px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: rgba(0, 0, 0, 0.1);
+  color: #333;
+  transition: background 0.4s ease-in-out, color 0.4s ease-in-out;
+}
+
+#chat-box::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* Button Styling */
+button {
+  margin-top: 12px;
+  padding: 12px 18px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background: #ff8800;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+button:hover {
+  background: #ffaa00;
+  transform: scale(1.05);
+}
+
+/*  Dark Mode */
+.dark-mode .contact {
+  background: #121212; /* Solid black background */
+  color: #fff;
+  padding: 155px 20px;
+}
+
+/* Adjustments for contrast in dark mode */
+.dark-mode .contact-container {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .contact h3 {
+  color: #fff; /* Ensures visibility */
+}
+
+.dark-mode .contact-item {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .contact-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Chat box adjustments in dark mode */
+.dark-mode #chat-box {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+.dark-mode #chat-box::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Button color adaptation in dark mode */
+.dark-mode button {
+  background: #ffcc00;
+  color: #151515;
+}
+
+.dark-mode button:hover {
+  background: #ffaa00;
+}
+
+
